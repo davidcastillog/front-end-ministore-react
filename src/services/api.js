@@ -4,5 +4,5 @@ const baseUrl = "https://front-test-api.herokuapp.com/";
 
 export const apiServer = axios.create({
   baseURL: baseUrl,
-  timeout: 7000,
+  timeout: 7000
 });
