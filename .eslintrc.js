@@ -24,5 +24,9 @@ module.exports = {
     'react'
   ],
   rules: {
+    // Disable quotes rules
+    quotes: 0,
+    // Disable semi-colon rules
+    semi: 0
   }
 }
