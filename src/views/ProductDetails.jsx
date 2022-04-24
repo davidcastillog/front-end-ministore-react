@@ -75,9 +75,9 @@ export const ProductDetails = () => {
       ) : (
         <>
           <h1>Product Details</h1>
-        <Image product={product} />
-        <Description product={product} />
-        <Actions product={product} addToCart={AddToCart} />
+          <Image product={product} />
+          <Description product={product} />
+          <Actions product={product} addToCart={AddToCart} />
         </>
       )}
     </>

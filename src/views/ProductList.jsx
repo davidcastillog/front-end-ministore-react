@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../services/productsWS";
 import { Link } from "react-router-dom";
-import { Item } from "../components";
+import { Item, Search } from "../components";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 
 export const ProductList = () => {
   const [productsData, setProductsData] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const localData = localStorage.getItem("localProductList");
@@ -41,13 +43,29 @@ export const ProductList = () => {
   useEffect(() => {
     getAllData();
   }, []);
+
   return (
     <>
       <h1>Product List </h1>
+      <Search
+        productsData={productsData}
+        setFilteredProducts={setFilteredProducts}
+      />
       {isLoading ? (
         // Show loading indicator while data is loading
         <CircularProgress color="error" />
-        //  If there are products, show data
+      ) : filteredProducts.length > 0 ? (
+        <>
+          {filteredProducts.map((product) => (
+            <Link
+              to={`/product/${product.id}`}
+              key={product.id}
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
+              <Item product={product} />
+            </Link>
+          ))}
+        </>
       ) : productsData.length > 0 ? (
         <>
           {productsData.map((product) => (
@@ -62,7 +80,7 @@ export const ProductList = () => {
         </>
       ) : (
         // If there are no products, show a message to the user
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="h6" color="textSecondary">
           No products found
         </Typography>
       )}

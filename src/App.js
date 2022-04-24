@@ -2,7 +2,7 @@ import "./App.css";
 import RootNavigation from "./RootNavigation";
 import { Header } from "./components";
 
-function App () {
+function App() {
   return (
     <div className="App">
       <Header />

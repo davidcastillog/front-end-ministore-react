@@ -41,7 +41,7 @@ _Follow this simple steps:_
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/davidcastillog/travelfy-client.git
+   git clone https://github.com/davidcastillog/front-end-ministore-react.git
    ```
 2. Install NPM packages
    ```sh
@@ -110,4 +110,4 @@ Distributed under the MIT License. See `License.txt` for more information.
 <p align="right"><a href="#top">back to top ^</a></p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[license-shield]:https://img.shields.io/github/license/davidcastillog/travelfy-client?style=for-the-badge
+[license-shield]:https://img.shields.io/github/license/davidcastillog/front-end-ministore-react
