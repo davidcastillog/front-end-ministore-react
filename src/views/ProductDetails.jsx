@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct, AddToCart } from "../services/productsWS";
+import { getProduct } from "../services/productsWS";
 import { Image, Description, Actions } from "../components";
 import CircularProgress from "@mui/material/CircularProgress";
 
 export const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  console.log("Product", product);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const localData = localStorage.getItem("recentlyViewed");
@@ -77,7 +77,7 @@ export const ProductDetails = () => {
           <h1>Product Details</h1>
           <Image product={product} />
           <Description product={product} />
-          <Actions product={product} addToCart={AddToCart} />
+          <Actions product={product} />
         </>
       )}
     </>

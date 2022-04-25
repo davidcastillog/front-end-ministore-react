@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Search = ({ productsData, setFilteredProducts }) => {
-  const [search, setSearch] = useState("");
-
+const Search = ({ search, setSearch, productsData, setFilteredProducts }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
