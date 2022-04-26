@@ -17,7 +17,10 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import HomeIcon from "@mui/icons-material/Home";
 
 function Header() {
+  // Context for cart state
   const { cartItems } = useContext(CartContext);
+
+  // Get the current location of the page for the breadcrumbs
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -32,7 +35,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ height: "60px" }}>
+    <AppBar position="fixed" sx={{ height: "65px" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -63,6 +66,7 @@ function Header() {
               }}
             ></Menu>
           </Box>
+          {/* Store Logo */}
           <Typography
             variant="h6"
             noWrap
@@ -73,6 +77,7 @@ function Header() {
               <img src={StoreLogo} alt="store-logo" height={50} />
             </Link>
           </Typography>
+          {/* Store Logo for Small Screens */}
           <Typography
             variant="h6"
             noWrap
@@ -89,6 +94,7 @@ function Header() {
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
+          {/* Cart Icon */}
           <Box sx={{ flexGrow: 0 }}>
             <MenuItem>
               <IconButton size="large" aria-label="Cart" color="inherit">
@@ -99,6 +105,7 @@ function Header() {
             </MenuItem>
           </Box>
         </Toolbar>
+        {/* Breadcrumbs */}
         <Breadcrumbs aria-label="breadcrumb">
           <Link to="/">
             <HomeIcon sx={{ mr: 0.5 }} color="inherit" fontSize="inherit" />

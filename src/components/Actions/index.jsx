@@ -56,7 +56,7 @@ const Actions = ({ product }) => {
 
   return (
     <>
-      <h1> Actions </h1>
+      {/* Color Selector */}
       <Select
         id="demo-simple-select"
         sx={{
@@ -73,6 +73,7 @@ const Actions = ({ product }) => {
           </MenuItem>
         ))}
       </Select>
+      {/* Storage Selector */}
       <Select
         id="demo-simple-select"
         sx={{
@@ -89,6 +90,7 @@ const Actions = ({ product }) => {
           </MenuItem>
         ))}
       </Select>
+      {/* Add to Cart Button */}
       <Button onClick={handleOnClick} variant="contained">
         Añadir
       </Button>

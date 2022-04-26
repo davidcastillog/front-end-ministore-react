@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../services/productsWS";
-import { Link } from "react-router-dom";
 import { Item, Search } from "../components";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
+import CssBaseline from "@mui/material/CssBaseline";
 
 export const ProductList = () => {
   const [productsData, setProductsData] = useState([]);
@@ -56,14 +56,15 @@ export const ProductList = () => {
 
   return (
     <>
-      <h1>Product List </h1>
+      <CssBaseline />
       <Search
         productsData={productsData}
         setFilteredProducts={setFilteredProducts}
         search={search}
         setSearch={setSearch}
       />
-      <Typography variant="h6" gutterBottom>
+      {/* Show items count when user is searching */}
+      <Typography variant="h6body1" gutterBottom>
         {search ? (
           // If search is not empty, show the number of items found
           itemsCount > 0 ? (
@@ -78,28 +79,16 @@ export const ProductList = () => {
       </Typography>
       {isLoading ? (
         // If loading, show loading spinner
-        <CircularProgress />
+        <CircularProgress sx={{ mt: 3 }} />
       ) : search ? (
         // If search is not empty, show the filtered products
         filteredProducts.map((product) => (
-          <Link
-            to={`/product/${product.id}`}
-            key={product.id}
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Item product={product} />
-          </Link>
+            <Item product={product} key={product.id} />
         ))
       ) : (
         // If there is no search term, show all products in the list
         productsData.map((product) => (
-          <Link
-            to={`/product/${product.id}`}
-            key={product.id}
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Item product={product} />
-          </Link>
+            <Item product={product} key={product.id} />
         ))
       )}
     </>

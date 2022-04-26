@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProduct } from "../services/productsWS";
 import { Image, Description, Actions } from "../components";
 import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -71,13 +72,23 @@ export const ProductDetails = () => {
     <>
       {isLoading ? (
         // Show loading indicator while data is loading
-        <CircularProgress color="error" />
+        <CircularProgress sx={{ mt: 3 }} />
       ) : (
         <>
-          <h1>Product Details</h1>
-          <Image product={product} />
-          <Description product={product} />
-          <Actions product={product} />
+          <Grid
+            container
+            justifyContent="center"
+            columns={{ xs: 12, sm: 12, md: 12 }}
+            paddingTop={2}
+          >
+            <Grid item xs={12} sm={6} md={6}>
+              <Image product={product} />
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <Description product={product} />
+              <Actions product={product} />
+            </Grid>
+          </Grid>
         </>
       )}
     </>
