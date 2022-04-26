@@ -24,5 +24,11 @@ module.exports = {
     'react'
   ],
   rules: {
+    quotes: 0,
+    semi: 0,
+    'space-before-function-paren': 0,
+    'multiline-ternary': 0,
+    indent: 0,
+    'react/prop-types': 0
   }
 }

@@ -2,18 +2,20 @@
 
 <div align="center">
   </a>
-  <h1 align="center">Ecommerce mini-app</h1>
+  <h1 align="center">Ecommerce Frontend React App</h1>
 </div>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a small ecommerce Frontend React mini-app using an API to fetch data from a server. The project is built using the following technologies:
+This is a small Ecommerce Frontend React app using an API to fetch data from a server and save it to localstorage to reduce API requests.
 
-   * [React](https://reactjs.org/)
-   * [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
-   * [Axios](https://github.com/axios/axios)
-   * [Material-UI](https://mui.com/)
+The project is built using the following technologies:
+
+   * [React 18.0.0](https://reactjs.org/)
+   * [React Router 6.3.0](https://reactrouter.com/docs/en/v6/getting-started/overview)
+   * [Axios 0.26.1](https://github.com/axios/axios)
+   * [Material-UI 5.6.2](https://mui.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -34,14 +36,13 @@ To download the latest version of npm, on the command line, run the following co
 ```sh
 npm install -g npm
 ```
-
 ### Installation
 
 _Follow this simple steps:_
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/davidcastillog/travelfy-client.git
+   git clone https://github.com/davidcastillog/front-end-ministore-react.git
    ```
 2. Install NPM packages
    ```sh
@@ -110,4 +111,4 @@ Distributed under the MIT License. See `License.txt` for more information.
 <p align="right"><a href="#top">back to top ^</a></p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[license-shield]:https://img.shields.io/github/license/davidcastillog/travelfy-client?style=for-the-badge
+[license-shield]:https://img.shields.io/github/license/davidcastillog/front-end-ministore-react
