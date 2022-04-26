@@ -14,7 +14,7 @@ function Item({ product }) {
 
   return (
     <>
-      <Card elevation={0} sx={{ maxWidth: 275, pt: 2 }}>
+      <Card elevation={0} sx={{ maxWidth: 275 }}>
         <CardActionArea sx={{ pt: 2 }} onClick={handleonClick}>
           <Image product={product} />
           <CardContent>
@@ -24,7 +24,7 @@ function Item({ product }) {
             <Typography variant="body2" color="text.secondary">
               {product.brand}
             </Typography>
-            {/* If product has price */}
+            {/* If product has price show it */}
             {product.price && (
               <Typography variant="body1" color="error">
                 €{product.price}

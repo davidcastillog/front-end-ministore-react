@@ -4,8 +4,10 @@ import { AddToCart } from "../../services/productsWS";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 
 const Actions = ({ product }) => {
+  // Context for the cart
   const { setCartItems } = useContext(CartContext);
 
   // Values for the select menu
@@ -26,10 +28,12 @@ const Actions = ({ product }) => {
     }
   };
 
+  // Update the state when the select menu changes
   useEffect(() => {
     setValuesToState();
   }, [product]);
 
+  // Update the state with user selected values
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -45,8 +49,10 @@ const Actions = ({ product }) => {
       colorCode: values.colorCode,
       storageCode: values.storageCode
     };
+    // Send user selectionn to the API to add to the cart
     AddToCart(optionsSelected)
       .then((res) => {
+        // Update the cart items in the context (API answer)
         setCartItems(res.data);
       })
       .catch((err) => {
@@ -56,44 +62,56 @@ const Actions = ({ product }) => {
 
   return (
     <>
-      {/* Color Selector */}
-      <Select
-        id="demo-simple-select"
-        sx={{
-          width: "20ch",
-          marginBottom: "1rem"
-        }}
-        name="colorCode"
-        value={values.colorCode}
-        onChange={handleChange}
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        paddingTop={3}
       >
-        {product?.options?.colors.map((color, i) => (
-          <MenuItem key={i} value={color.code}>
-            {color.name}
-          </MenuItem>
-        ))}
-      </Select>
-      {/* Storage Selector */}
-      <Select
-        id="demo-simple-select"
-        sx={{
-          width: "20ch",
-          marginBottom: "1rem"
-        }}
-        value={values.storageCode}
-        name="storageCode"
-        onChange={handleChange}
-      >
-        {product?.options?.storages.map((storage, i) => (
-          <MenuItem key={i} value={storage.code}>
-            {storage.name}
-          </MenuItem>
-        ))}
-      </Select>
-      {/* Add to Cart Button */}
-      <Button onClick={handleOnClick} variant="contained">
-        Añadir
-      </Button>
+        {/* Color Selector */}
+        <Select
+          id="demo-simple-select"
+          sx={{
+            width: "20ch",
+            marginBottom: "1rem"
+          }}
+          name="colorCode"
+          value={values.colorCode}
+          onChange={handleChange}
+        >
+          {product?.options?.colors.map((color, i) => (
+            <MenuItem key={i} value={color.code}>
+              {color.name}
+            </MenuItem>
+          ))}
+        </Select>
+        {/* Storage Selector */}
+        <Select
+          id="demo-simple-select"
+          sx={{
+            width: "20ch",
+            marginBottom: "1rem"
+          }}
+          value={values.storageCode}
+          name="storageCode"
+          onChange={handleChange}
+        >
+          {product?.options?.storages.map((storage, i) => (
+            <MenuItem key={i} value={storage.code}>
+              {storage.name}
+            </MenuItem>
+          ))}
+        </Select>
+        {/* Add to Cart Button */}
+        <Button
+          sx={{ width: "23ch", height: "3em" }}
+          onClick={handleOnClick}
+          variant="contained"
+        >
+          Añadir
+        </Button>
+      </Grid>
     </>
   );
 };

@@ -4,6 +4,7 @@ import { getProduct } from "../services/productsWS";
 import { Image, Description, Actions } from "../components";
 import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -70,27 +71,27 @@ export const ProductDetails = () => {
 
   return (
     <>
-      {isLoading ? (
-        // Show loading indicator while data is loading
-        <CircularProgress sx={{ mt: 3 }} />
-      ) : (
-        <>
+      <Container maxWidth="lg">
+        {isLoading ? (
+          // Show loading indicator while data is loading
+          <CircularProgress sx={{ mt: 3 }} />
+        ) : (
           <Grid
             container
             justifyContent="center"
-            columns={{ xs: 12, sm: 12, md: 12 }}
             paddingTop={2}
+            paddingBottom={4}
           >
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={6}>
               <Image product={product} />
             </Grid>
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={6}>
               <Description product={product} />
               <Actions product={product} />
             </Grid>
           </Grid>
-        </>
-      )}
+        )}
+      </Container>
     </>
   );
 };

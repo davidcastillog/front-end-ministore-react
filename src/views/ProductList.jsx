@@ -4,6 +4,8 @@ import { Item, Search } from "../components";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 export const ProductList = () => {
   const [productsData, setProductsData] = useState([]);
@@ -57,40 +59,46 @@ export const ProductList = () => {
   return (
     <>
       <CssBaseline />
-      <Search
-        productsData={productsData}
-        setFilteredProducts={setFilteredProducts}
-        search={search}
-        setSearch={setSearch}
-      />
-      {/* Show items count when user is searching */}
-      <Typography variant="h6body1" gutterBottom>
-        {search ? (
-          // If search is not empty, show the number of items found
-          itemsCount > 0 ? (
-            <>{itemsCount} items found</>
+      <Container maxWidth="lg">
+        <Search
+          productsData={productsData}
+          setFilteredProducts={setFilteredProducts}
+          search={search}
+          setSearch={setSearch}
+        />
+        {/* Show items count when user is searching */}
+        <Typography variant="h6body1" gutterBottom>
+          {search ? (
+            // If search is not empty, show the number of items found
+            itemsCount > 0 ? (
+              <>{itemsCount} items found</>
+            ) : (
+              // If search is not empty, but no items are found, show message to user
+              <>No items found</>
+            )
           ) : (
-            // If search is not empty, but no items are found, show message to user
-            <>No items found</>
-          )
+            <></>
+          )}
+        </Typography>
+        {isLoading ? (
+          // If loading, show loading spinner
+          <CircularProgress sx={{ mt: 3 }} />
+        ) : search ? (
+          <>
+            <Grid container justifyContent="center" paddingTop={2}>
+                {/* If search is not empty, show the filtered products */}
+                {filteredProducts.map((product) => (
+                  <Item product={product} key={product.id} />
+                ))}
+            </Grid>
+          </>
         ) : (
-          <></>
+          // If there is no search term, show all products in the list
+          productsData.map((product) => (
+            <Item product={product} key={product.id} />
+          ))
         )}
-      </Typography>
-      {isLoading ? (
-        // If loading, show loading spinner
-        <CircularProgress sx={{ mt: 3 }} />
-      ) : search ? (
-        // If search is not empty, show the filtered products
-        filteredProducts.map((product) => (
-            <Item product={product} key={product.id} />
-        ))
-      ) : (
-        // If there is no search term, show all products in the list
-        productsData.map((product) => (
-            <Item product={product} key={product.id} />
-        ))
-      )}
+      </Container>
     </>
   );
 };
