@@ -28,4 +28,9 @@
     padding-left: 20px;
     width: 100%
   }
+
+  .product-list-search-field{
+    align-items: center !important;
+  }
+
 }

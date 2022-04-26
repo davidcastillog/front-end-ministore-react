@@ -3,23 +3,24 @@ import Grid from "@mui/material/Grid";
 
 const Description = ({ product }) => {
   return (
-      <Grid>
-        <Typography inline-block variant="subtitle2" gutterBottom>
-          Brand:&nbsp;
-          <Typography style={{ display: "inline-block" }} variant="body2">
-            {product.brand}
-          </Typography>
+    <Grid>
+      <Typography variant="subtitle2" gutterBottom>
+        Brand:&nbsp;
+        <Typography style={{ display: "inline-block" }} variant="body2">
+          {product.brand}
         </Typography>
-        <Typography variant="subtitle2" gutterBottom>
-          Model:&nbsp;
-          <Typography
-            style={{ display: "inline-block" }}
-            variant="body2"
-            gutterBottom
-          >
-            {product.model}
-          </Typography>
+      </Typography>
+      <Typography variant="subtitle2" gutterBottom>
+        Model:&nbsp;
+        <Typography
+          style={{ display: "inline-block" }}
+          variant="body2"
+          gutterBottom
+        >
+          {product.model}
         </Typography>
+      </Typography>
+      {product.price && (
         <Typography variant="subtitle2" gutterBottom>
           Price:&nbsp;
           <Typography
@@ -30,6 +31,8 @@ const Description = ({ product }) => {
             €{product.price}
           </Typography>
         </Typography>
+      )}
+      {product.cpu && (
         <Typography variant="subtitle2" gutterBottom>
           CPU:&nbsp;
           <Typography
@@ -40,6 +43,8 @@ const Description = ({ product }) => {
             {product.cpu}
           </Typography>
         </Typography>
+      )}
+      {product.ram && (
         <Typography variant="subtitle2" gutterBottom>
           RAM:&nbsp;
           <Typography
@@ -50,6 +55,8 @@ const Description = ({ product }) => {
             {product.ram}
           </Typography>
         </Typography>
+      )}
+      {product.os && (
         <Typography variant="subtitle2" gutterBottom>
           OS:&nbsp;
           <Typography
@@ -60,7 +67,8 @@ const Description = ({ product }) => {
             {product.os}
           </Typography>
         </Typography>
-
+      )}
+      {product.displayResolution && (
         <Typography variant="subtitle2" gutterBottom>
           Display Resolution:&nbsp;
           <Typography
@@ -71,6 +79,8 @@ const Description = ({ product }) => {
             {product.displayResolution}
           </Typography>
         </Typography>
+      )}
+      {product.battery && (
         <Typography variant="subtitle2" gutterBottom>
           Battery:&nbsp;
           <Typography
@@ -81,33 +91,34 @@ const Description = ({ product }) => {
             {product.battery}
           </Typography>
         </Typography>
-        <Typography variant="subtitle2" gutterBottom>
-          Primary Camera:&nbsp;
-          <Typography
-            style={{ display: "inline-block" }}
-            variant="body2"
-            gutterBottom
-          >
-            {product.primaryCamera
-              ? product.primaryCamera["0"]
-              : product.primaryCamera}
-          </Typography>
+      )}
+      <Typography variant="subtitle2" gutterBottom>
+        Primary Camera:&nbsp;
+        <Typography
+          style={{ display: "inline-block" }}
+          variant="body2"
+          gutterBottom
+        >
+          {product.primaryCamera
+            ? product.primaryCamera["0"]
+            : product.primaryCamera}
         </Typography>
-        <Typography variant="subtitle2" gutterBottom>
-          Secondary Camera:&nbsp;
-          <Typography
-            style={{ display: "inline-block" }}
-            variant="body2"
-            gutterBottom
-          >
-            {product.primaryCamera
-              ? product.secondaryCmera["0"]
-              : product.secondaryCmera}
-          </Typography>
+      </Typography>
+      <Typography variant="subtitle2" gutterBottom>
+        Secondary Camera:&nbsp;
+        <Typography
+          style={{ display: "inline-block" }}
+          variant="body2"
+          gutterBottom
+        >
+          {product.primaryCamera
+            ? product.secondaryCmera["0"]
+            : product.secondaryCmera}
         </Typography>
-
+      </Typography>
+      {product.dimentions && product.dimentions !== "-" && (
         <Typography variant="subtitle2" gutterBottom>
-          Dimetions:&nbsp;
+          Dimentions:&nbsp;
           <Typography
             style={{ display: "inline-block" }}
             variant="body2"
@@ -116,7 +127,8 @@ const Description = ({ product }) => {
             {product.dimentions}
           </Typography>
         </Typography>
-
+      )}
+      {product.weight && (
         <Typography variant="subtitle2" gutterBottom>
           Weight:&nbsp;
           <Typography
@@ -127,7 +139,8 @@ const Description = ({ product }) => {
             {product.weight} grms
           </Typography>
         </Typography>
-      </Grid>
+      )}
+    </Grid>
   );
 };
 

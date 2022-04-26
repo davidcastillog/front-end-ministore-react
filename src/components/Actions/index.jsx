@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 const Actions = ({ product }) => {
   // Context for the cart
@@ -70,6 +71,9 @@ const Actions = ({ product }) => {
         paddingTop={3}
       >
         {/* Color Selector */}
+        <Typography variant="subtitle2" gutterBottom>
+          Color:
+        </Typography>
         <Select
           id="demo-simple-select"
           sx={{
@@ -87,6 +91,9 @@ const Actions = ({ product }) => {
           ))}
         </Select>
         {/* Storage Selector */}
+        <Typography variant="subtitle2" gutterBottom>
+          Storage:
+        </Typography>
         <Select
           id="demo-simple-select"
           sx={{

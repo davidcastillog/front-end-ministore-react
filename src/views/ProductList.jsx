@@ -60,12 +60,20 @@ export const ProductList = () => {
     <>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Search
-          productsData={productsData}
-          setFilteredProducts={setFilteredProducts}
-          search={search}
-          setSearch={setSearch}
-        />
+        <Grid
+          container
+          className="product-list-search-field"
+          direction="column"
+          justifyContent="center"
+          alignItems="flex-end"
+        >
+          <Search
+            productsData={productsData}
+            setFilteredProducts={setFilteredProducts}
+            search={search}
+            setSearch={setSearch}
+          />
+        </Grid>
         {/* Show items count when user is searching */}
         <Typography variant="h6body1" gutterBottom>
           {search ? (
@@ -86,17 +94,19 @@ export const ProductList = () => {
         ) : search ? (
           <>
             <Grid container justifyContent="center" paddingTop={2}>
-                {/* If search is not empty, show the filtered products */}
-                {filteredProducts.map((product) => (
-                  <Item product={product} key={product.id} />
-                ))}
+              {/* If search is not empty, show the filtered products */}
+              {filteredProducts.map((product) => (
+                <Item product={product} key={product.id} />
+              ))}
             </Grid>
           </>
         ) : (
-          // If there is no search term, show all products in the list
-          productsData.map((product) => (
-            <Item product={product} key={product.id} />
-          ))
+          <Grid container justifyContent="center" paddingTop={2}>
+            {/* If there is no search term, show all products in the list */}
+            {productsData.map((product) => (
+              <Item product={product} key={product.id} />
+            ))}
+          </Grid>
         )}
       </Container>
     </>

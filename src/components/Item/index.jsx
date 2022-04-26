@@ -14,7 +14,7 @@ function Item({ product }) {
 
   return (
     <>
-      <Card elevation={0} sx={{ maxWidth: 275 }}>
+      <Card elevation={0} sx={{ width: 275 }}>
         <CardActionArea sx={{ pt: 2 }} onClick={handleonClick}>
           <Image product={product} />
           <CardContent>
