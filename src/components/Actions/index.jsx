@@ -16,7 +16,7 @@ const Actions = ({ product }) => {
   });
 
   // Set default values for the select menu
-  const setValuesToState = async () => {
+  const setValuesToState = () => {
     if (product.options !== undefined) {
       setValues({
         id: product.id,

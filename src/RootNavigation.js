@@ -6,10 +6,7 @@ function RootNavigation() {
   return (
     <Routes>
       <Route path="/" element={<ProductList />} />
-      <Route
-        path="/product/:id"
-        element={<ProductDetails />}
-      />
+      <Route path="/product/:id" element={<ProductDetails />} />
     </Routes>
   );
 }
